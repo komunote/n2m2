@@ -1,0 +1,31 @@
+<script>
+     if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(successGetCurrentPositionCallback, errorGetCurrentPositionCallback, {enableHighAccuracy: true, timeout: 10000, maximumAge: 600000});
+    } else {        
+        console.log('api non dispo');
+    }
+</script>
+
+<span class="div-box" id="login-form">
+    <span class="div-box-header">
+        <h1>{{__("Pour les inscrits, c'est par là")}}</h1>
+    </span>
+    <div class="div-box-body">
+        <form action="/user/login/" method="post">                 
+            <input type="email" name="email" placeholder="{{__("E-mail")}}" required="required" />
+            <input type="password" name="password" placeholder="{{__("Mot de passe")}}" required="required" />          
+            <input type="submit" class="btn-form btn-form-p" value="{{__("Connexion")}}" />
+        </form>
+    </div>
+</span>
+        
+<!--<span class="div-box geolocation-info">
+    <span class="div-box-header">
+        <h1>{{__("Information")}} <span class="btn btn-info"></span></h1>
+    </span>
+    <div class="div-box-body">
+        <p>{{__("L'accès à votre position géographique est nécessaire pour pouvoir accéder aux services nice2meet2.")}}</p>        
+        <p>{{__("Pour y parvenir, il vous suffit de recharger la page et d'accepter la demande d'accès à votre position.")}}</p>
+        <p>{{__("Si vous utilisez une tablette ou votre smartphone, pensez à activer le GPS ou votre connexion Wi-Fi.")}}</p>
+    </div>
+</span>-->

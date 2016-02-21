@@ -1,0 +1,37 @@
+<script>
+
+    if (navigator.geolocation) {
+        console.log(navigator);
+        navigator.geolocation.getCurrentPosition(
+                successGetCurrentPositionCallback,
+                errorGetCurrentPositionCallback,
+                {enableHighAccuracy: true, timeout: 10000, maximumAge: 600000});
+    } else {
+        console.log('api non dispo');
+    }
+    var socket = io.connect('http://195.154.14.237:3000/');
+    /*socket.on('join', function (data) {
+     socket.emit('join', {nickname : "{{ user.nickname }}" });
+     }*/
+
+    socket.on('connect', function() {
+        // call the server-side function 'adduser' and send one parameter (value of prompt)
+        //socket.emit('adduser', "{{ user.nickname }}");
+
+        socket.emit('join', {nickname: "{{ user.nickname }}", receiver: "{{ receiver.nickname }}"});
+    });
+
+// listener, whenever the server emits 'updatechat', this updates the chat body
+    socket.on('updatechat', function(data) {
+        if ('undefined' !== typeof (data.nickname)) {
+            $('#chat').prepend('<p><b>' + data.nickname + '</b> : ' + data.message + '</p>');
+        }
+    });
+
+</script>
+{# empty Twig template #}
+<section id="users"></section>
+<input type="hidden" id="receiver" value="{{ receiver.nickname }}" />
+<input type="text" id="chat_msg" />
+<input type="button" value="{{__("envoyer")}}" id="btn_msg"/>
+<section id="chat"></section>

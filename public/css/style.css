@@ -1,0 +1,344 @@
+/* DEBUT RESET CSS */
+html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,a, abbr, acronym, address, big, cite, code,del, dfn, em, font, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var,b, u, i, center,dl, dt, dd, ol, ul, li,fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td {margin: 0;padding: 0;border: 0;outline: 0;font-size: 100%;vertical-align: baseline;background: transparent;}
+body {line-height: 1;}ol, ul {list-style: none;}blockquote, q {quotes: none;}blockquote:before, blockquote:after,q:before, q:after {content: '';content: none;}
+/* remember to define focus styles! */:focus {outline: 0;}
+/* remember to highlight inserts somehow! */ins {text-decoration: none;}del {text-decoration: line-through;}
+/* tables still need 'cellspacing="0"' in the markup */table {border-collapse: collapse;border-spacing: 0;}
+/* FIN RESET CSS */
+
+header, section, article, nav, footer, aside, hgroup {display:block;}    
+body {font-family:Verdana, Geneva, Arial, sans-serif; font-size: 1em; color: #333; 
+      background-color: #000}
+/*#menuUl li {display: inline-block; display:inline; text-align: center; line-height: 60px; height: 60px;}*/
+
+.logo{font-size: 2em;}
+a {text-decoration: none; color:#ffffff;}
+a:hover { text-decoration: none;  color:#ffff00;}
+a .logo {text-decoration: none; color:#ff00ff;}
+/*a:hover .logo { text-decoration: none;  color:#ffffff;}*/
+a img {border:none; cursor: pointer}
+#headerNav{position: fixed; top:0px;width: 100%; height: 60px; z-index: 10; 
+           background-color: #333/*#4183D7*/;}
+#sloggan{display:block; color: #fff; font-style: italic; position: absolute; left:20px; top:40px; font-size: 1em;}
+#logoNav {float:left; width:60%;}
+.big-logo{display: block;}
+.small-logo{display: none;}
+
+#menuNav {float:left; width:40%; text-align: center;}
+.menu-box{float:left; text-align: center; height:64px; width:100px;margin-left: 10px;}
+.menu-text{float:left; text-align: center; height:24px; width:100px;}
+.menu-icon{float:left; text-align: center; height:32px; margin-left: 32px;}
+
+.ariane-header{display:block;position:absolute;top:60px; left:0px;color:#fff;background-color: #F62459;width:85%;line-height: 32px;}
+
+#menu-left{display:block;position:fixed;top:60px; left:0px;color:#fff;background-color: #000/*#F62459*/;width:60px; height:100%;}
+.menu-icon-left{float:left; height:32px; margin-left: 14px; margin-bottom: 32px;}
+
+#bodyDiv { display:block; width:100%; margin-top: 60px; text-align: center; 
+           background-color: #ffffff;background: url(../image/tour_eiffel.jpg) no-repeat -200px 0px;}
+#footerDiv{clear: both; float:left; width: 100%; height: 50px;}
+
+
+/* buttons */
+.btn{display: inline-block;width: 32px;height: 32px;padding-left:0px;}
+.btn-form { width:348px; height:50px; font-size: 1.3em; margin-top: 10px; cursor:pointer;/*margin-bottom: 25px;-moz-border-radius:10px;-webkit-border-radius:10px;border-radius:10px;*/}
+.btn-form-p { border:1px solid #F62459; color:#ffffff; background-color: #F62459/*#ff00ff*/; }
+.btn-form-p:hover { border:1px solid #ffff00; color:#ffff00;}
+.btn-form-b { border:1px solid #4183D7; color:#ffffff; background-color: #4183D7; }
+.btn-form-b:hover { border:1px solid #ffff00; color:#ffff00; }
+
+span.button {
+    clear:both; display: inline-block;line-height: 32px; 
+    width:348px; height:32px; font-size: 1.3em; margin-top: 10px; cursor:pointer;
+    border:1px solid #F62459; color:#ffffff; background-color: #F62459;}
+span.button:hover { border:1px solid #ffff00; color:#ffff00;}
+
+.btn-trip{background:url(../image/icon/sprite.png) no-repeat top left;background-position:-0px 0px;height: 32px;width: 32px;}
+.btn-trip:hover{background:url(../image/icon/sprite.png) no-repeat top left;background-position:-0px -32px;height: 32px;width: 32px;}
+
+.btn-event{background:url(../image/icon/sprite.png) no-repeat top left;background-position:-32px 0px;height: 32px;width: 32px;}
+.btn-event:hover{background:url(../image/icon/sprite.png) no-repeat top left;background-position:-32px -32px;height: 32px;width: 32px;}
+
+.btn-info{background:url(../image/icon/sprite.png) no-repeat top left;background-position:-64px 0px;height: 32px;width: 32px;}
+.btn-info:hover{background:url(../image/icon/sprite.png) no-repeat top left;background-position:-64px -32px;height: 32px;width: 32px;}
+
+.btn-login{background:url(../image/icon/sprite.png) no-repeat top left;background-position:-96px 0px;height: 32px;width: 32px;}
+.btn-login:hover{background:url(../image/icon/sprite.png) no-repeat top left;background-position:-96px -32px;height: 32px;width: 32px;}
+
+.btn-signin{background:url(../image/icon/sprite.png) no-repeat top left;background-position:-128px 0px;height: 32px;width: 32px;}
+.btn-signin:hover{background:url(../image/icon/sprite.png) no-repeat top left;background-position:-128px -32px;height: 32px;width: 32px;}
+
+.btn-user-find{background:url(../image/icon/sprite.png) no-repeat top left;background-position:-160px 0px;height: 32px;width: 32px;}
+.btn-user-find:hover{background:url(../image/icon/sprite.png) no-repeat top left;background-position:-160px -32px;height: 32px;width: 32px;}
+
+.btn-user-account{background:url(../image/icon/sprite.png) no-repeat top left;background-position:-192px 0px;height: 32px;width: 32px;}
+.btn-user-account:hover{background:url(../image/icon/sprite.png) no-repeat top left;background-position:-192px -32px;height: 32px;width: 32px;}
+
+.btn-user-add{background:url(../image/icon/sprite.png) no-repeat top left;background-position:-288px 0px;height: 32px;width: 32px;}
+.btn-user-add:hover{background:url(../image/icon/sprite.png) no-repeat top left;background-position:-288px -32px;height: 32px;width: 32px;}
+
+.btn-user-chat{background:url(../image/icon/sprite.png) no-repeat top left;background-position:-288px -64px;height: 32px;width: 32px;}
+.btn-user-chat:hover{background:url(../image/icon/sprite.png) no-repeat top left;background-position:-288px -96px;height: 32px;width: 32px;}
+
+
+
+.btn-fb{background:url(../image/icon/sprite.png) no-repeat top left;background-position:-0px -64px;height: 32px;width: 32px;}
+.btn-fb:hover{background:url(../image/icon/sprite.png) no-repeat top left;background-position:-0px -96px;height: 32px;width: 32px;}
+
+.btn-tw{background:url(../image/icon/sprite.png) no-repeat top left;background-position:-32px -64px;height: 32px;width: 32px;}
+.btn-tw:hover{background:url(../image/icon/sprite.png) no-repeat top left;background-position:-32px -96px;height: 32px;width: 32px;}
+
+.btn-gp{background:url(../image/icon/sprite.png) no-repeat top left;background-position:-64px -64px;height: 32px;width: 32px;}
+.btn-gp:hover{background:url(../image/icon/sprite.png) no-repeat top left;background-position:-64px -96px;height: 32px;width: 32px;}
+
+/* form */
+label {display:block; margin-top:0px; /*letter-spacing:2px;*//*line-height: 24px;*/}
+fieldset > label {color:#F62459;}
+form { margin:0 auto; min-width:350px; width:100%}
+
+/* Style the text boxes */
+input, textarea {    
+    width:300px; height:25px;
+    background:#dedede/*#4183D7*//*#efefef*/; border:1px solid #dedede; padding:10px;
+    /*margin-top:3px;*/font-size:1em;color:#333/*#3a3a3a*/;
+    /*-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;*/
+}
+input[type=radio]{width:32px; line-height: 32px; }
+/*input[type=submit]{clear:both; min-width:300px; width: 100%; line-height: 32px; }*/
+.input-big{clear:both; min-width:300px; width: 100%; line-height: 32px; }
+/*.input-small{clear:both;min-width:100px; width: 150px; line-height: 32px;}*/
+
+fieldset{
+    padding: 10px;
+    margin: 10px;
+    border:2px solid #333;
+    /*-moz-border-radius:8px;
+    -webkit-border-radius:8px;	
+    border-radius:8px; */   
+}
+
+::-webkit-input-placeholder { /* WebKit browsers */color:    #333;}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */color:    #333;opacity:  1;}
+::-moz-placeholder { /* Mozilla Firefox 19+ */color:    #333;opacity:  1;}
+:-ms-input-placeholder { /* Internet Explorer 10+ */color:    #333;}
+
+select {
+    width:320px; height:50px; background:#dedede/*#efefef*/; border:1px solid #dedede; padding:10px;
+    margin-top:3px; font-size:1em; color:#333/*#3a3a3a*/;
+    /*-moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px;*/
+}
+
+select.day{width:75px;}
+select.month{width:125px;}
+select.year{width:100px;}
+
+input:focus, textarea:focus, select:focus, input:hover, textarea:hover, select:hover{border:1px solid #ff00ff;}
+
+textarea {height:213px;	}
+
+table{min-width: 348px; width: 100%}
+td {width:50%;}
+tr{line-height: 48px;}
+tr:nth-child(even) {background: #444}
+tr:nth-child(odd) {background: #000}
+
+#content{ margin: 1px; max-width: 1920px; min-width: 350px; min-height: 1280px;/*background-color: #ffffff;float:left; border-right: solid 3px #ff00ff; border-bottom: solid 3px #ff00ff;-moz-border-bottom-right-radius:10px;-webkit-border-bottom-right-radius:10px;border-bottom-right-radius:10px;border: solid 1px #ff00ff;*/}
+/*#pub-left{background-color: #ffffff; float:left; margin: 1px; overflow:hidden; width: 350px; min-width: 175px; min-height: 800px; }*/
+
+#pub-right{display:block;position:fixed;top:60px;right:0px; color:#fff;background-color: #000/*#F62459*/;width:350px; height:100%; z-index: 9;}
+
+.div-box h1{color:#fff;}
+.div-box{float:left; min-width: 350px; width:75%}
+.div-box-header{float:left; min-width: 350px; width:100%; line-height: 32px; margin-bottom: 10px; background-color: #333/*#4183D7*/;}
+.div-box-body{background-color: #fff; border: solid 1px #333; /*max-height: 850px; overflow: auto;*/}
+
+.pub-box{float:left; width: 348px; height: 160px; border: solid 1px #333; background-color: #333; margin: 2px;}
+.pub-box-img{float:left; width:81px; height: 60px;}
+.pub-box-txt{float:left; width:267px; height:60px;}
+.pub-mobile{display:none;}
+.geolocation-info{display:none;}
+
+.div-box-home-slider{position:absolute; top:92px; left:60px; width: 350px; }
+.div-box-home-login{position:absolute; top:460px; left:1050px; width: 350px; }
+.div-box-home-subscribe{position:absolute; top:92px; left:550px; width: 350px;}
+.div-box-main{position:absolute; top:92px; left:100px/*550px*/; min-width: 350px; /*max-width: 1500px;*/ width:85%}
+.div-box-home-slider-pub1{position:fixed; top:60px; right:0px; width: 350px; z-index: 10;}
+.div-box-home-slider-pub2{position:fixed; top:220px; right:0px; width: 350px; z-index: 10;}
+.div-box-home-slider-pub3{position:fixed; top:380px; right:0px; width: 350px; z-index: 10;}
+.div-box-home-slider-pub4{position:fixed; top:540px; right:0px; width: 350px; z-index: 10;}
+
+/* admin */
+#div-search {position:absolute; top:92px; left:60px; width: 350px; height: 400px ;}
+#map-canvas {/*position:absolute; top:200px; left:0px;*/width: 350px; height: 400px ;}
+#div-form {position:absolute; top:92px; left:450px; width: 350px;}  
+#div-results{background-color: #fff;}
+
+
+@media screen and (min-width: 1221px) and (max-width:1400px){
+    #logoNav {float:left; width:50%;}
+    #menuNav {float:left; width:50%; text-align: center;}
+    .ariane-header{width: 75%;}
+    #bodyDiv{background: url(../image/tour_eiffel.jpg) no-repeat -350px 0px;}
+    /*.div-box-home-login{position:absolute; top:100px; left:400px; width: 350px;}*/
+    .div-box-home-slider{position:absolute; top:92px; left:60px; width: 350px;}
+    .div-box-home-login{position:absolute; top:460px; left:950px; width: 350px;}
+    .div-box-home-subscribe{position:absolute; top:92px; left:500px; width: 350px;}
+    .div-box-main{position:absolute; top:92px; left:100px; min-width: 350px; ; width: 80%}
+    .div-box-home-slider-pub1{position:fixed; top:60px; right:0px; width: 350px; z-index: 10;}
+    .div-box-home-slider-pub2{position:fixed; top:220px; right:0px; width: 350px; z-index: 10;}
+    .div-box-home-slider-pub3{position:fixed; top:380px; right:0px; width: 350px; z-index: 10;}
+    .div-box-home-slider-pub4{position:fixed; top:540px; right:0px; width: 350px; z-index: 10;}
+    #content{min-height: 1280px;}
+}
+
+@media screen and (min-width: 1025px) and (max-width:1220px){
+    #logoNav {float:left; width:45%;}
+    #menuNav {float:left; width:55%; text-align: center;}
+    .ariane-header{width: 75%;}
+    #bodyDiv{background: url(../image/tour_eiffel2.jpg) no-repeat -350px 0px;}
+    
+    #content{min-height: 1280px;}
+
+    .div-box-home-slider{position:absolute; top:92px; left:60px; width: 350px;}    
+    .div-box-home-subscribe{position:absolute; top:92px; left:450px; width: 350px;}
+    .div-box-home-login{position:absolute; top:560px; left:60px; width: 350px;}
+    .div-box-main{position:absolute; top:92px; left:80px; min-width: 350px; width:80%}
+    .div-box-home-slider-pub1{position:fixed; top:60px; right:0px; width: 350px; z-index: 10;}
+    .div-box-home-slider-pub2{position:fixed; top:220px; right:0px; width: 350px; z-index: 10;}
+    .div-box-home-slider-pub3{position:fixed; top:380px; right:0px; width: 350px; z-index: 10;}
+    .div-box-home-slider-pub4{position:fixed; top:540px; right:0px; width: 350px; z-index: 10;}
+}
+
+@media screen and (min-width: 717px) and (max-width:1024px){
+    #logoNav {float:left; width:55%;}
+    #menuNav {float:left; width:45%; text-align: center;}
+    .ariane-header{width: 65%;}
+    #headerNav{position: fixed; top:0px;min-width: 350px; height: 60px; background-color: #333/*#4183D7*/;z-index: 10;}   
+    body{font-size: 1.1em;}
+    #bodyDiv{display:block;min-width:350px; margin-top: 60px; text-align: center;background: url(../image/tour_eiffel2.jpg) no-repeat -450px 0px;}    
+    #content{min-height: 1000px;}
+
+    .div-box-home-slider{position:absolute; top:92px; left:60px; width: 350px;}
+    .div-box-home-subscribe{position:absolute; top:92px; left:450px; width: 350px;}
+    .div-box-home-login{position:absolute; top:560px; left:60px; width: 350px;}
+    .div-box-main{position:absolute; top:92px; left:50px; width: 350px; }    
+    .div-box-home-slider-pub1{position:fixed; top:60px; right:0px; width: 350px; z-index: 10;}
+    .div-box-home-slider-pub2{position:fixed; top:220px; right:0px; width: 350px; z-index: 10;}
+    .div-box-home-slider-pub3{position:fixed; top:380px; right:0px; width: 350px; z-index: 10;}
+    .div-box-home-slider-pub4{position:fixed; top:540px; right:0px; width: 350px; z-index: 10;}
+
+    .menu-box{width:32px; height: 32px; margin-left: 30px; margin-top:15px;}
+    .menu-icon{float:left; text-align: center; height:32px; margin-left: 4px;}
+    .menu-text{display:none;}
+}
+
+/*screen and (orientation:portrait)*/ 
+/*, screen and (-webkit-min-device-pixel-ratio:0.5)*/
+@media screen and (min-width: 401px) and (max-width:716px){    
+    body{font-size: 1.25em;}
+    #sloggan{display:none;}
+    #logoNav {float:left; width:45%;}
+    #menuNav {float:left; width:55%; text-align: center;}
+    .ariane-header{width: 100%;}
+    #bodyDiv { display:block;min-width:350px; margin-top: 60px; text-align: center;
+               background: url(../image/tour_eiffel2.jpg) no-repeat top left;}
+    .big-logo{display: none;}
+    .small-logo{display: block;}
+
+    #headerNav{position: fixed; top:0px;min-width: 350px; height: 60px; z-index: 10; 
+               background-color: #333/*#4183D7*/;}   
+    .ariane-header{float:left; position:static;}
+    #menu-left{display:none;}
+    #content{clear: both; width: 100%; height: auto;}   
+
+    #pub-right{display:none;}
+    /*#pub-right{clear: both; background-color: #ffffff; float:left; min-width: 350px; height: 70px; margin: 1px;}    
+    #pub-right-content{height: 0px;}*/
+    .pub-box{font-size: 0.7em;}        
+    /*.pub-mobile{display:block;}*/
+    /*#pub-left{display:none;}*/
+
+    .div-box{float:left;}
+    .div-box-home-login{float:left; position: static}
+    .div-box-home-subscribe{float:left; position: static}
+    .div-box-main{float:left; position:static}        
+    .div-box-home-slider{float:left; position: static}
+    .div-box-home-slider-pub1{float:left; position: static}
+    .div-box-home-slider-pub2{float:left; position: static}
+    .div-box-home-slider-pub3{float:left; position: static}
+    .div-box-home-slider-pub4{float:left; position: static}
+
+    .menu-box{width:32px; height: 32px; margin-left: 10px; margin-top:15px;}
+    .menu-icon{float:left; text-align: center; height:32px; margin-left: 4px;}
+    .menu-text{display:none;}
+
+    #footerDiv{clear: both; float:left; min-width: 350px; height: 50px;}
+}
+
+@media screen and (max-width: 400px)
+{
+    body{font-size: 1.35em;}
+    #sloggan{display:none;}
+    #logoNav {float:left; width:35%;}
+    #menuNav {float:left; width:65%; text-align: center;}
+    .ariane-header{width: 100%;}
+    #bodyDiv { display:block;min-width:350px; margin-top: 60px; text-align: center;
+               background: none no-repeat top left;}
+    .big-logo{display: none;}
+    .small-logo{display: block;}
+
+    #headerNav{position: fixed; top:0px;min-width: 350px; height: 60px; z-index: 10; 
+               background-color: #333/*#4183D7*/;}    
+    .ariane-header{float:left; position:static;}
+    #menu-left{display:none;}
+    #content{clear: both; width: 100%; height: auto;}   
+    
+    #pub-right{display:none;}
+    /*#pub-right{clear: both; background-color: #ffffff; float:left; min-width: 350px; height: 70px; margin: 1px;}    
+    #pub-right-content{height: 0px;}*/
+    .pub-box{font-size: 0.7em;}        
+    /*.pub-mobile{display:block;}*/
+    /*#pub-left{display:none;}*/
+
+    .div-box{float:left;}
+    .div-box-home-login{float:left; position: static}
+    .div-box-main{float:left; position:static}
+    .div-box-home-subscribe{float:left; position: static}
+    .div-box-home-slider{float:left; position: static}
+    .div-box-home-slider-pub1{float:left; position: static}
+    .div-box-home-slider-pub2{float:left; position: static}
+    .div-box-home-slider-pub3{float:left; position: static}
+    .div-box-home-slider-pub4{float:left; position: static}
+
+    .menu-box{width:32px; height: 32px; margin-left: 10px; margin-top:15px;}
+    .menu-icon{float:left; text-align: center; height:32px; margin-left: 4px;}
+    .menu-text{display:none;}
+
+    #footerDiv{clear: both; float:left; min-width: 350px; height: 50px;}
+}
+
+/* Arrow Navigator Skin Begin*/
+
+/* jssor slider arrow navigator skin 03 css */
+/*
+.jssora03l              (normal)
+.jssora03r              (normal)
+.jssora03l:hover        (normal mouseover)
+.jssora03r:hover        (normal mouseover)
+.jssora03ldn            (mousedown)
+.jssora03rdn            (mousedown)
+*/
+.jssora03l, .jssora03r, .jssora03ldn, .jssora03rdn
+{
+    position: absolute;
+    cursor: pointer;
+    display: block;
+    background: url(../js/img/a03.png) no-repeat;
+    overflow:hidden;
+}
+.jssora03l { background-position: -3px -33px; }
+.jssora03r { background-position: -63px -33px; }
+.jssora03l:hover { background-position: -123px -33px; }
+.jssora03r:hover { background-position: -183px -33px; }
+.jssora03ldn { background-position: -243px -33px; }
+.jssora03rdn { background-position: -303px -33px; }

@@ -1,0 +1,84 @@
+<script>
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(successGetCurrentPositionCallback, errorGetCurrentPositionCallback, {enableHighAccuracy: true, timeout: 10000, maximumAge: 600000});
+    } else {
+        console.log('api non dispo');
+    }
+</script>
+
+{% if result is defined %}  
+    <p>Inscription ok</p>
+{% else %}    
+    <span class="div-box" id="subscribe-form">
+        <span class="div-box-header">
+            <h1>{{__("Les nouveaux venus, c'est ici")}}</h1>
+        </span>
+        <div class="div-box-body">
+            <form action="/user/subscribe/" method="post">    
+                <input type="text" name="nickname" placeholder="{{__("Pseudo")}}" required="required" />
+                <input type="hidden" name="name" value="" />
+                <input type="hidden" name="firstname" value="" />
+                <label>{{__("Date de naissance")}}</label>
+                <select name="day" class="day">
+                    <option value="1">1</option>
+                </select>
+                <select name="month" class="month">
+                    <option value="1">{{__("Janvier")}}</option>
+                    <option value="2">{{__("Février")}}</option>
+                    <option value="3">{{__("Mars")}}</option>
+                    <option value="4">{{__("Avril")}}</option>
+                    <option value="5">{{__("Mai")}}</option>
+                    <option value="6">{{__("Juin")}}</option>
+                    <option value="7">{{__("Juillet")}}</option>
+                    <option value="8">{{__("Août")}}</option>
+                    <option value="9">{{__("Septembre")}}</option>
+                    <option value="10">{{__("Octobre")}}</option>
+                    <option value="11">{{__("Novembre")}}</option>
+                    <option value="12">{{__("Décembre")}}</option>
+                </select>
+                <select name="year" class="year">
+                    <option value="1996">1996</option>
+                </select>
+                <p>&nbsp;</p>
+                <input type="email" name="email" placeholder="{{__("Adresse e-mail")}}" required="required" />       
+                <input type="email" name="emailconfirm" placeholder="{{__("Confirmation e-mail")}}" required="required" />       
+                <input type="password" name="password" placeholder="{{__("Mot de passe")}}" required="required" />
+                <input type="password" name="passwordconfirm" placeholder="{{__("Confirmation mot de passe")}}" required="required" />
+
+                <select name="gender">
+                    <option value="0">{{__("Je suis un homme")}}</option>
+                    <option value="1">{{__("Je suis une femme")}}</option>
+                </select>
+
+                <select name="preference">
+                    <option value="1">{{__("je recherche une femme")}}</option>
+                    <option value="0">{{__("je recherche un homme")}}</option>
+                    <option value="2">{{__("peu importe")}}</option>
+                </select>
+
+                <input type="hidden" name="city" class="city" />
+                <input type="hidden" name="postalcode" class="postalcode" />
+                <input type="hidden" name="country" class="country" />
+                <input type="hidden" name="state" class="state" />
+                <input type="hidden" name="longitude" class="longitude" />
+                <input type="hidden" name="latitude" class="latitude" />
+                <p>&nbsp;</p>
+                <p>Votre localité :</p>
+                <p id="location"></p>
+
+                <input type="submit" class="btn-form btn-form-p" value="{{__("Inscription")}}" />
+            </form>
+        </div>
+    </span>
+
+    <span class="div-box geolocation-info">
+        <span class="div-box-header">
+            <h1>{{__("Information")}} <span class="btn btn-info"></span></h1>
+        </span>
+        <div class="div-box-body">
+            <p>{{__("L'accès à votre position géographique est nécessaire pour pouvoir accéder aux services nice2meet2.")}}</p>        
+            <p>{{__("Pour y parvenir, il vous suffit de recharger la page et d'accepter la demande d'accès à votre position.")}}</p>
+            <p>{{__("Si vous utilisez une tablette ou votre smartphone, pensez à activer le GPS ou votre connexion Wi-Fi.")}}</p>
+        </div>
+    </span>
+{% endif %}

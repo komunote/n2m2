@@ -1,0 +1,62 @@
+<span class="ariane-header">
+    <h1><a href="/admin">{{__("Accueil")}}</a> -> <a href="/admin/prospect">{{__("Prospects")}}</a> -> {{__("Rechercher prospects")}}</h1>
+</span>
+
+<div class="div-box-main"> 
+    <span class="div-box">
+        <span class="div-box-header">
+            <h1>{{__("Recherche par critère")}}</h1>
+        </span>
+        <div class="div-box-body">
+            <form action="/admin/prospect/search" method="post">            
+                <input type="text" name="company" placeholder="{{__("Nom de l'entreprise")}}"/>
+                <input type="text" name="city" placeholder="{{__("Ville")}}"/> 
+                <input type="text" name="postalcode" placeholder="{{__("Code postal")}}" />
+                <label>{{__("Intéressé(e) ?")}}</label>
+                <select name="interested">
+                    <option value="0">-</option>
+                    <option value="1">{{__("oui")}}</option>
+                    <option value="2">{{__("non")}}</option>
+                </select>
+
+                <label>{{__("Envoyer infos par email ?")}}</label>
+                <select name="sendemail">
+                    <option value="0">-</option>
+                    <option value="1">{{__("oui")}}</option>
+                    <option value="2">{{__("non")}}</option>
+                </select>    
+
+                <label>{{__("A recontacter ?")}}</label>
+                <select name="tobecontacted">
+                    <option value="0">-</option>
+                    <option value="1">{{__("oui")}}</option>
+                    <option value="2">{{__("non")}}</option>
+                </select> 
+                <input type="submit" class="btn-form btn-form-p" value="{{__("rechercher")}}" />
+            </form>
+        </div>
+    </span>
+
+    <span class="div-box">
+        <span class="div-box-header">
+            <h1>{{__("Recherche à proximité")}}</h1>
+        </span>
+        <div class="div-box-body">
+            <form action="/admin/prospect/search-nearby" method="post" id="form-search-nearby">        
+                <label>{{__("Autour de moi")}}</label>
+                <select name="range" id="select-range">
+                    <option value="0">{{("jusqu'à une distance de")}}</option>
+                    <option value="1000">{{__("1 km")}}</option>
+                    <option value="2000">{{__("2 km")}}</option>
+                    <option value="5000">{{__("5 km")}}</option>
+                    <option value="10000">{{__("10 km")}}</option>
+                    <option value="20000">{{__("20 km")}}</option>
+                    <option value="50000">{{__("50 km")}}</option>
+                    <option value="100000">{{__("100 km")}}</option>
+                    <option value="500000">{{__("500 km")}}</option>        
+                </select>    
+                <!--<input type="submit" class="btn-form btn-form-p" value="{{__("rechercher")}}" />-->
+            </form>
+        </div>
+    </span>
+</div>

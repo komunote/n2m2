@@ -1,0 +1,205 @@
+<span class="ariane-header">
+    <h1>{{__("Modification des données personnelles")}}</h1>
+</span>
+
+<div class="div-box-main"> 
+    <span class="div-box">
+        <span class="div-box-header">
+            <h1>{{__("Mes données personnelles")}}</h1>
+        </span>
+        <div class="div-box-body">        
+            <form action="/user/update" method="post">                
+                <input type="text" name="nickname" placeholder="{{__("Pseudo")}}" value="{{ user.nickname }}" readonly/>
+                <input type="text" name="name" placeholder="{{__("Nom")}}" required="required" value="{{user.name}}"/>
+                <input type="text" name="firstname" placeholder="{{__("Prénom")}}" required="required" value="{{user.firstname}}"/>
+                <input type="text" name="city" placeholder="{{__("Ville")}}" required="required" value="{{user.city}}"/>
+                <input type="number" name="postalcode" placeholder="{{__("Code postal")}}" required="required" value="{{user.postalcode}}" />
+                <input type="hidden" name="email" placeholder="{{__("E-mail")}}" value="{{user.email}}" readonly />
+
+                <select name="gender">
+                    <option value="0" {% if user.gender == 0 %}selected="selected"{% endif %}>{{__("Je suis un homme")}}</option>
+                    <option value="1" {% if user.gender == 1 %}selected="selected"{% endif %}>{{__("Je suis une femme")}}</option>
+                </select>
+
+                <select name="preference">
+                    <option value="1" {% if user.preference == 0 %}selected="selected"{% endif %}>{{__("je recherche une femme")}}</option>
+                    <option value="0" {% if user.preference == 1 %}selected="selected"{% endif %}>{{__("je recherche un homme")}}</option>
+                    <option value="2" {% if user.preference == 2 %}selected="selected"{% endif %}>{{__("peu importe")}}</option>
+                </select>               
+
+                <input type="password" name="password" placeholder="{{__("Mot de passe")}}" required="required" />
+                <input type="password" name="passwordconfirm" placeholder="{{__("Confirmation du mot de passe")}}" required="required" />
+
+                <input type="submit" class="btn-form btn-form-p" value="{{__("modifier")}}" />
+                <input type="hidden" name="_id" value="{{user._id}}" />
+            </form>
+        </div>
+    </span>
+    <span class="div-box">
+        <span class="div-box-header">
+            <h1>{{__("Mes photos publiques")}}</h1>
+        </span>
+        <div class="div-box-body">   
+
+            {% if user.pictures.public[1].toValidate is defined and user.pictures.public[1].toValidate == 1 %}
+                <form>
+                    <fieldset>
+                        <legend>{{__("Photo du profil")}}</legend>
+                        <label>{{__("en cours de validation")}}</label>
+                    </fieldset>
+                </form>
+            {% else %}
+                <form action="/user/update/picture" method="post" enctype='multipart/form-data'>
+                    <fieldset>
+                        <legend>{{__("Photo du profil")}}</legend>
+                        <input type="hidden" name="number" value="1"/>
+                        <input type="hidden" name="type" value="public"/>
+                        <input type="file" accept=".jpg, .jpeg" name="image" required="required"/>                    
+                        <input type="submit" class="btn-form btn-form-p" value="{{__("envoyer")}}" />
+                    </fieldset>
+                </form>     
+            {%endif%}
+
+            {% if user.pictures.public[2].toValidate is defined and user.pictures.public[2].toValidate == 1 %}
+                <form>
+                    <fieldset>
+                        <legend>{{__("Photo publique n°2")}}</legend>
+                        <label>{{__("en cours de validation")}}</label>
+                    </fieldset>
+                </form>
+            {% else %}
+                <form action="/user/update/picture" method="post" enctype='multipart/form-data'>
+                    <fieldset>
+                        <legend>{{__("Photo publique n°2")}}</legend>
+                        <input type="hidden" name="number" value="2"/>
+                        <input type="hidden" name="type" value="public"/>
+                        <input type="file" accept=".jpg, .jpeg" name="image" required="required"/>                    
+                        <input type="submit" class="btn-form btn-form-p" value="{{__("envoyer")}}" />
+                    </fieldset>
+                </form>
+            {%endif%}
+
+            {% if user.pictures.public[3].toValidate is defined and user.pictures.public[3].toValidate == 1 %}
+                <form>
+                    <fieldset>
+                        <legend>{{__("Photo publique n°3")}}</legend>
+                        <label>{{__("en cours de validation")}}</label>
+                    </fieldset>
+                </form>
+            {% else %}
+                <form action="/user/update/picture" method="post" enctype='multipart/form-data'>
+                    <fieldset>
+                        <legend>{{__("Photo publique n°3")}}</legend>
+                        <input type="hidden" name="number" value="3"/>
+                        <input type="hidden" name="type" value="public"/>
+                        <input type="file" accept=".jpg, .jpeg" name="image" required="required"/>                    
+                        <input type="submit" class="btn-form btn-form-p" value="{{__("envoyer")}}" />
+                    </fieldset>
+                </form>      
+            {%endif%}
+        </div>
+    </span>
+    <span class="div-box">
+        <span class="div-box-header">
+            <h1>{{__("Mes photos privées")}}</h1>
+        </span>
+        <div class="div-box-body">  
+            {% if user.pictures.private[1].toValidate is defined and user.pictures.private[1].toValidate == 1 %}                
+                <form>
+                    <fieldset>
+                        <legend>{{__("Photo privé n°1")}}</legend>
+                        <label>{{__("en cours de validation")}}</label>
+                    </fieldset>
+                </form>
+            {% else %}
+                <form action="/user/update/picture" method="post" enctype='multipart/form-data'>
+                    <fieldset>
+                        <legend>{{__("Photo privé n°1")}}</legend>
+                        <input type="hidden" name="number" value="1"/>
+                        <input type="hidden" name="type" value="private"/>
+                        <input type="file" accept=".jpg, .jpeg" name="image" required="required"/>                    
+                        <input type="submit" class="btn-form btn-form-p" value="{{__("envoyer")}}" />
+                    </fieldset>
+                </form>      
+            {%endif%}
+
+            {% if user.pictures.private[2].toValidate is defined and user.pictures.private[2].toValidate == 1 %}                
+                <form>
+                    <fieldset>
+                        <legend>{{__("Photo privé n°2")}}</legend>
+                        <label>{{__("en cours de validation")}}</label>
+                    </fieldset>
+                </form>
+            {% else %}
+                <form action="/user/update/picture" method="post" enctype='multipart/form-data'>
+                    <fieldset>
+                        <legend>{{__("Photo privé n°2")}}</legend>
+                        <input type="hidden" name="number" value="2"/>
+                        <input type="hidden" name="type" value="private"/>
+                        <input type="file" accept=".jpg, .jpeg" name="image" required="required"/>                    
+                        <input type="submit" class="btn-form btn-form-p" value="{{__("envoyer")}}" />
+                    </fieldset>
+                </form>
+            {%endif%}
+
+            {% if user.pictures.private[3].toValidate is defined and user.pictures.private[3].toValidate == 1 %}                
+                <form>
+                    <fieldset>
+                        <legend>{{__("Photo privé n°3")}}</legend>
+                        <label>{{__("en cours de validation")}}</label>
+                    </fieldset>
+                </form>
+            {% else %}
+                <form action="/user/update/picture" method="post" enctype='multipart/form-data'>
+                    <fieldset>
+                        <legend>{{__("Photo privé n°3")}}</legend>
+                        <input type="hidden" name="number" value="3"/>
+                        <input type="hidden" name="type" value="private"/>
+                        <input type="file" accept=".jpg, .jpeg" name="image" required="required"/>                    
+                        <input type="submit" class="btn-form btn-form-p" value="{{__("envoyer")}}" />
+                    </fieldset>
+                </form>
+            {%endif%}
+        </div>
+    </span>
+</div>
+
+<div class="div-box-home-slider-pub1">           
+    <span class="div-box">            
+        <div class="div-box-body">
+            <div id="slider1_container_pub1" style="position: relative; top: 0px; left: 0px; width: 350px; height: 160px;">
+                {% include 'home_slider_pub.twig' %}
+            </div>
+        </div>
+    </span>
+</div>  
+
+<div class="div-box-home-slider-pub2">           
+    <span class="div-box">            
+        <div class="div-box-body">
+            <div id="slider1_container_pub2" style="position: relative; top: 0px; left: 0px; width: 350px; height: 160px;">
+                {% include 'home_slider_pub.twig' %}
+            </div>
+        </div>
+    </span>
+</div>                      
+
+<div class="div-box-home-slider-pub3">           
+    <span class="div-box">            
+        <div class="div-box-body">
+            <div id="slider1_container_pub3" style="position: relative; top: 0px; left: 0px; width: 350px; height: 160px;">
+                {% include 'home_slider_pub.twig' %}
+            </div>
+        </div>
+    </span>
+</div>
+
+<div class="div-box-home-slider-pub4">           
+    <span class="div-box">            
+        <div class="div-box-body">
+            <div id="slider1_container_pub4" style="position: relative; top: 0px; left: 0px; width: 350px; height: 160px;">
+                {% include 'home_slider_pub.twig' %}
+            </div>
+        </div>
+    </span>
+</div>

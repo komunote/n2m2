@@ -1,0 +1,67 @@
+<span class="ariane-header">
+    <h1><a href="/home">{{__("Accueil")}}</a> -> <a href="/search">{{__("Rechercher")}}</a> -> {{__("Résultat de la recherche")}}</h1>
+</span>
+<p>&nbsp;</p>
+
+<div class="div-box-main">
+    <span class="div-box">
+        <!--<span class="div-box-header">
+            <h1>{{__("Résultat de la recherche")}}</h1>
+        </span>-->
+        <div class="div-box-body" style="min-height: 450px;">
+            <table>
+                {% if result is defined %}  
+                    {% for user in result %}
+                        <tr>
+                            <td><a href="/chat/{{ user.nickname }}/{{ user._id }}" title="{{__("Chatter avec")}} {{ user.nickname }}">{{ user.nickname }}</a></td>
+                            <td><a href="/chat/{{ user.nickname }}/{{ user._id }}" title="{{__("Chatter avec")}} {{ user.nickname }}"><span class="btn btn-user-chat"></span></a></td>
+                            <td><a href="/user/account-add-to-friendlist/" title="{{__("Ajouter à ma liste d'amis")}}"><span class="btn btn-user-add"></span></a></td>
+                        </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr><td>{{__("Aucun résultat")}}</td></tr>
+                {% endif %}
+            </table>
+        </div>
+    </span>
+</div>
+
+<div class="div-box-home-slider-pub1">           
+    <span class="div-box">            
+        <div class="div-box-body">
+            <div id="slider1_container_pub1" style="position: relative; top: 0px; left: 0px; width: 350px; height: 160px;">
+                {% include 'home_slider_pub.twig' %}
+            </div>
+        </div>
+    </span>
+</div>  
+            
+<div class="div-box-home-slider-pub2">           
+    <span class="div-box">            
+        <div class="div-box-body">
+            <div id="slider1_container_pub2" style="position: relative; top: 0px; left: 0px; width: 350px; height: 160px;">
+                {% include 'home_slider_pub.twig' %}
+            </div>
+        </div>
+    </span>
+</div>          
+
+<div class="div-box-home-slider-pub3">           
+    <span class="div-box">            
+        <div class="div-box-body">
+            <div id="slider1_container_pub3" style="position: relative; top: 0px; left: 0px; width: 350px; height: 160px;">
+                {% include 'home_slider_pub.twig' %}
+            </div>
+        </div>
+    </span>
+</div>
+
+<div class="div-box-home-slider-pub4">           
+    <span class="div-box">            
+        <div class="div-box-body">
+            <div id="slider1_container_pub4" style="position: relative; top: 0px; left: 0px; width: 350px; height: 160px;">
+                {% include 'home_slider_pub.twig' %}
+            </div>
+        </div>
+    </span>
+</div>

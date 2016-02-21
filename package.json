@@ -1,0 +1,23 @@
+{
+  "name": "Nice2meet2",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./server.js"
+  },
+  "dependencies": {
+    "express": "~4.4.3",      
+    "compression": "~1.0.9",
+    "express-session":"~1.5.0",
+    "morgan": "~1.1.1",
+    "body-parser": "~1.4.3",
+    "method-override": "~2.0.2",    
+    "twig": "~0.7.2",
+    "gm":"~1.16.0",
+    "multiparty":"~1.2.1",
+    "toobusy":"~0.2.4",
+    "mc":"~1.0.6",
+    "cacher": "~1.1.2",
+    "cacher-memcached":"~0.0.2"    
+  }
+}

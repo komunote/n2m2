@@ -1,0 +1,112 @@
+<script src="static/js/geolocalisation.js"></script>
+<script>
+    google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+<span class="ariane-header">
+    <h1><a href="/admin">{{__("Admin")}}</a> -> <a href="/admin/prospect">{{__("Prospects")}}</a> -> {{__("Ajouter un prospect")}} ({{count}})</h1>
+</span>
+
+<section>
+    <div id="div-search" class="div-box-body">
+        <input type="text" id="input-address" placeholder="{{__("Nom + adresse + ville + code postal + pays")}}" required="required"/> 
+        <input type="text" id="keyword" placeholder="{{__("mots clés")}}" required="required"/> 
+        <input type="button" id="btn-find-address"  value="{{__("Rerchercher")}}" class="btn-form btn-form-p"/>
+        <select name="type" id="type">
+            <option value="restaurant">{{__('Restaurants')}}</option>                    
+            <option value="bar">{{__('Bars')}}</option>                    
+            <option value="cafe">{{__('Cafés')}}</option>                    
+            <option value="beauty_salon">{{__('Salons de beauté')}}</option>                    
+            <option value="spa">{{__('Spas')}}</option>                    
+            <option value="hair_care">{{__('Coiffeurs')}}</option>                    
+            <option value="night_club">{{__('Clubs/Discothèques')}}</option>                                
+        </select>        
+        <div id="map-canvas"></div>        
+        <input type="button" class="btn-form btn-form-p add-all" value="{{__("Tout ajouter")}}" />
+        <div><table id="results"></table></div>
+    </div>
+
+    <div id="div-form" class="div-box-body">                        
+        <div id="div-results"></div>
+        <form action="/admin/prospect/add/" method="post" id="add-prospect-form">                             
+
+            <input type="text" name="latitude" id="input-latitude" placeholder="{{__("Latitude")}}" readonly="readonly" required="required" />
+            <input type="text" name="longitude" id="input-longitude" placeholder="{{__("Longitude")}}" readonly="readonly" required="required" />
+            <input type="text" name="address" id="input-formatted-address" placeholder="{{__("Adresse formatée")}}" required="required" /> 
+
+            <input type="text" name="postalcode" id="input-postalcode" placeholder="{{__("Code postal")}}" readonly="readonly" required="required" />
+            <input type="text" name="city" id="input-city" placeholder="{{__("Ville")}}" readonly="readonly" required="required" />
+            <input type="text" name="deptnumber" id="input-deptnumber" placeholder="{{__("N° Département")}}" readonly="readonly" required="required" />
+            <input type="text" name="department" id="input-department" placeholder="{{__("Département")}}" readonly="readonly" required="required" />            
+            <input type="text" name="state" id="input-state" placeholder="{{__("Région")}}" readonly="readonly" required="required" />
+            <input type="text" name="country" id="input-country" placeholder="{{__("Pays")}}" readonly="readonly" required="required" />
+            <hr />
+            <select name="category">
+                {% if categories is defined %}                  
+                    {% for category in categories %}                        
+                        <option value="{{category._id}}">{{__(category.name)}}</option>
+                    {% endfor %}                
+                {% endif %}
+            </select>
+
+            <select name="specialty">
+                {% if specialties is defined %}                  
+                    {% for specialty in specialties %}                        
+                        <option value="{{specialty._id}}">{{__(specialty.name)}}</option>
+                    {% endfor %}                
+                {% endif %}
+            </select>        
+            <input type="text" name="company" placeholder="{{__("Nom de l'entreprise")}}" required="required" />            
+            <input type="email" name="email" placeholder="{{__("Email de l'entreprise")}}" />
+            <input type="url" name="website" placeholder="{{__("Site web de l'entreprise")}}" />
+            <input type="tel" name="phone" placeholder="{{__("Téléphone de l'entreprise")}}" required="required"/>
+            <input type="text" name="contact" placeholder="{{__("Nom du contact et sa fonction")}}" value="{{prospect.contact}}" />
+            <label>{{__("Note")}}</label><input type="number" name="note" step="0.1" min="0" max="5" value="2.5"/>    
+
+            <select name="contract">
+                <option value="0">{{__("Type de contrat")}}</option>
+                <option value="36">{{__("36 mois")}}</option>
+                <option value="24">{{__("24 mois")}}</option>
+                <option value="12">{{__("12 mois")}}</option>
+            </select>
+
+            <select name="product">
+                <option value="0">{{__("Type d'abonnement")}}</option>
+                <option value="1">{{__("Standard")}}</option>
+                <option value="2">{{__("Premium")}}</option>
+            </select>
+
+            <label>{{__("A recontacter ?")}}</label>
+            <div class="radio">
+                <input type="radio" name="tobecontacted" value="1" id="radio1" /><label for="radio1">{{__("oui")}}</label>
+                <input type="radio" name="tobecontacted" value="2" id="radio2" /><label for="radio2">{{__("non")}}</label>                                        
+            </div>
+            <input type="text" name="tobecontacteddate" placeholder="{{__("Date et heure à rappeler")}}" value="{{prospect.tobecontacteddate}}" />            
+
+            <label>{{__("Envoyer infos par email ?")}}</label>
+            <div class="radio">                
+                <input type="radio" name="sendemail" value="1" id="radio3" /><label for="radio3">{{__("oui")}}</label>
+                <input type="radio" name="sendemail" value="2" id="radio4" /><label for="radio4">{{__("non")}}</label>                                        
+            </div>
+
+            <label>{{__("Intéressé(e) ?")}}</label>
+            <div class="radio">                
+                <input type="radio" name="interested" value="1" id="radio5" /><label for="radio5">{{__("oui")}}</label>
+                <input type="radio" name="interested" value="2" id="radio6" /><label for="radio6">{{__("non")}}</label>                                        
+            </div>
+
+            <textarea name="comment" placeholder="{{__("Commentaire")}}"></textarea>
+            <input type="hidden" name="reviews" />
+            <input type="hidden" name="types" />
+            <input type="submit" class="btn-form btn-form-p" value="{{__("Ajouter")}}" /> <!--id="btn-add-prospect"-->
+            <div style="display:none" id="confirm-add-prospect-msg">{{__("Souhaitez-vous vraiment ajouter ce prospect ?")}}</div>            
+        </form>    
+    </div>  
+
+    <div id="test-popup" class="white-popup mfp-hide" style="display:none;">
+        {{__("Souhaitez-vous vraiment ajouter ce prospect ?")}}
+    </div>
+
+</section>
+
+

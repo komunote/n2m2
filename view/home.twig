@@ -1,0 +1,71 @@
+{% if user is defined %}    
+    <script>
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(successGetCurrentPositionCallback, errorGetCurrentPositionCallback, {enableHighAccuracy: true, timeout: 10000, maximumAge: 600000});
+        } else {
+            console.log('api non dispo');
+        }
+    </script>
+
+    <span class="ariane-header">
+        <h1>{{__("Accueil")}}</h1>
+    </span>
+        
+    <div class="div-box-home-slider">           
+        {% include 'home_slider.twig' %}
+    </div>   
+
+    <div class="div-box-home-slider-pub1">           
+        <span class="div-box">            
+            <div class="div-box-body">
+                <div id="slider1_container_pub1" style="position: relative; top: 0px; left: 0px; width: 350px; height: 160px;">
+                    {% include 'home_slider_pub.twig' %}
+                </div>
+            </div>
+        </span>
+    </div>  
+                
+    <div class="div-box-home-slider-pub2">           
+        <span class="div-box">            
+            <div class="div-box-body">
+                <div id="slider1_container_pub2" style="position: relative; top: 0px; left: 0px; width: 350px; height: 160px;">
+                    {% include 'home_slider_pub.twig' %}
+                </div>
+            </div>
+        </span>
+    </div>                      
+
+    <div class="div-box-home-slider-pub3">           
+        <span class="div-box">            
+            <div class="div-box-body">
+                <div id="slider1_container_pub3" style="position: relative; top: 0px; left: 0px; width: 350px; height: 160px;">
+                    {% include 'home_slider_pub.twig' %}
+                </div>
+            </div>
+        </span>
+    </div>
+
+    <div class="div-box-home-slider-pub4">           
+        <span class="div-box">            
+            <div class="div-box-body">
+                <div id="slider1_container_pub4" style="position: relative; top: 0px; left: 0px; width: 350px; height: 160px;">
+                    {% include 'home_slider_pub.twig' %}
+                </div>
+            </div>
+        </span>
+    </div>
+{% else %}  
+
+    <div class="div-box-home-slider">           
+        {% include 'home_slider.twig' %}
+    </div>   
+
+    <div class="div-box-home-subscribe">                     
+        {% include 'user/subscribe-form.twig' %}
+    </div>  
+
+    <div class="div-box-home-login">
+        {% include 'user/login-form.twig' %}
+    </div> 
+
+{% endif %}

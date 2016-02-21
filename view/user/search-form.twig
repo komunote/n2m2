@@ -1,0 +1,84 @@
+<span class="ariane-header">
+    <h1><a href="/home">{{__("Accueil")}}</a> -> {{__("Rechercher")}}</h1>
+</span>
+
+<div class="div-box-main"> 
+    <span class="div-box">
+        <span class="div-box-header">
+            <h1>{{__("Recherche autour de moi")}}</h1>
+        </span>
+        <div class="div-box-body">        
+            <form action="/user/search-nearby" method="post" id="form-search-nearby">        
+                <select name="range" id="select-range">
+                    <option value="0">{{("jusqu'à une distance de")}}</option>
+                    <option value="1000">{{__("1 km")}}</option>
+                    <option value="2000">{{__("2 km")}}</option>
+                    <option value="5000">{{__("5 km")}}</option>
+                    <option value="10000">{{__("10 km")}}</option>
+                    <option value="20000">{{__("20 km")}}</option>
+                    <option value="50000">{{__("50 km")}}</option>
+                    <option value="100000">{{__("100 km")}}</option>
+                    <option value="500000">{{__("500 km")}}</option>
+                </select>    
+                <!--<input type="submit" class="btn-form btn-form-p" value="{{__("rechercher")}}" />-->
+            </form>
+        </div>
+    </span>
+
+
+    <span class="div-box">
+        <span class="div-box-header">
+            <h1>{{__("Recherche par critère(s)")}}</h1>
+        </span>
+        <div class="div-box-body">        
+            <form action="/user/search/" method="post">               
+                <input type="text" name="nickname" placeholder="{{__("Pseudo")}}"/>
+                <input type="text" name="city" placeholder="{{__("Ville")}}"/> 
+                <input type="text" name="postalcode" placeholder="{{__("Code postal")}}" />    
+                <div class="div-box-home-slider-pub1">           
+                    <span class="div-box">            
+                        <div class="div-box-body">
+                            <div id="slider1_container_pub1" style="position: relative; top: 0px; left: 0px; width: 350px; height: 160px;">
+                                {% include 'home_slider_pub.twig' %}
+                            </div>
+                        </div>
+                    </span>
+                </div>  
+
+                <div class="div-box-home-slider-pub2">           
+                    <span class="div-box">            
+                        <div class="div-box-body">
+                            <div id="slider1_container_pub2" style="position: relative; top: 0px; left: 0px; width: 350px; height: 160px;">
+                                {% include 'home_slider_pub.twig' %}
+                            </div>
+                        </div>
+                    </span>
+                </div>        
+
+                <div class="div-box-home-slider-pub3">           
+                    <span class="div-box">            
+                        <div class="div-box-body">
+                            <div id="slider1_container_pub3" style="position: relative; top: 0px; left: 0px; width: 350px; height: 160px;">
+                                {% include 'home_slider_pub.twig' %}
+                            </div>
+                        </div>
+                    </span>
+                </div>
+
+                <div class="div-box-home-slider-pub4">           
+                    <span class="div-box">            
+                        <div class="div-box-body">
+                            <div id="slider1_container_pub4" style="position: relative; top: 0px; left: 0px; width: 350px; height: 160px;">
+                                {% include 'home_slider_pub.twig' %}
+                            </div>
+                        </div>
+                    </span>
+                </div>
+                <input type="submit" class="btn-form btn-form-p" value="{{__("rechercher")}}" />
+            </form>
+        </div>
+    </span>
+
+
+
+</div>
